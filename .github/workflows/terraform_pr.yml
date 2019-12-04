@@ -9,13 +9,14 @@ jobs:
       GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
       GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/gcp_credentials.json
     steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master 
+
+      
       - name: 'Setting up job'
         run: |
           echo $GCP_CREDENTIALS > $GOOGLE_APPLICATION_CREDENTIALS
 
-
-      - name: 'Checkout'
-        uses: actions/checkout@master 
 
       - name: 'Terraform Format'
         uses: hashicorp/terraform-github-actions@master
