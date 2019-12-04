@@ -18,7 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
-          TF_var_aws_credentials: ${{ secrets.AWS_CREDENTIALS }}
       - name: 'Terraform Init'
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -29,7 +28,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
-          TF_var_aws_credentials: ${{ secrets.AWS_CREDENTIALS }}
       - name: 'Terraform Validate'
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -40,7 +38,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
-          TF_var_aws_credentials: ${{ secrets.AWS_CREDENTIALS }}
       - name: 'Terraform Plan'
         id: 'terraform_plan'
         uses: hashicorp/terraform-github-actions@master
@@ -52,4 +49,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
-          TF_var_aws_credentials: ${{ secrets.AWS_CREDENTIALS }}

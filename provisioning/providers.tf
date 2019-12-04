@@ -8,9 +8,3 @@ provider "google" {
     project     = "netive"
     region      = var.gcp_region
 }
-
-provider "aws" {
-    shared_credentials_file = var.aws_credentials
-    region                  = var.aws_region
-
-}

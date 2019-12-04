@@ -4,9 +4,6 @@
 
 variable "gcp_credentials" {}
 
-variable "aws_credentials" {}
-
-
 variable "gcp_region" {
     default = "europe-west2"
 }
