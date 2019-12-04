@@ -4,7 +4,7 @@
 
 terraform {
   backend "gcs" {
-    credentials = var.gcp_credentials
+    credentials = "../private/gcp_credentials.json"
     bucket      = "netive-infra-data"
     prefix      = "terraform/state"
   }

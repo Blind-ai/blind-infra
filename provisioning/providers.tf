@@ -4,7 +4,7 @@
 */
 
 provider "google" {
-  credentials = "/tmp/gcp_credentials.json"
+  credentials = var.gcp_credentials
   project     = "netive"
   region      = var.gcp_region
 }
