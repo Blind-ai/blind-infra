@@ -4,7 +4,7 @@
 
 terraform {
   backend "gcs" {
-    bucket  = "netive-infra-data"
-    prefix  = "terraform/state"
+    bucket = "netive-infra-data"
+    prefix = "terraform/state"
   }
 }
