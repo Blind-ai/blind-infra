@@ -10,3 +10,4 @@ module "netive-network" {
 module "netive-platform" {
   source = "./modules/netive-platform"
 }
+

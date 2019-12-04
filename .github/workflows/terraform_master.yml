@@ -1,6 +1,9 @@
-name: 'Terraform Pull request'
+name: 'Terraform Deploy'
 on:
-  - pull_request
+  push:
+    branches:
+    - master
+
 jobs:
   terraform:
     name: 'Terraform'
@@ -24,7 +27,7 @@ jobs:
           tf_actions_version: 0.12.16
           tf_actions_subcommand: 'fmt'
           tf_actions_working_dir: './provisioning'
-          tf_actions_comment: true
+          tf_actions_comment: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
@@ -35,7 +38,7 @@ jobs:
           tf_actions_version: 0.12.16
           tf_actions_subcommand: 'init'
           tf_actions_working_dir: './provisioning'
-          tf_actions_comment: true
+          tf_actions_comment: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
@@ -46,7 +49,7 @@ jobs:
           tf_actions_version: 0.12.16
           tf_actions_subcommand: 'validate'
           tf_actions_working_dir: './provisioning'
-          tf_actions_comment: true
+          tf_actions_comment: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
@@ -58,7 +61,19 @@ jobs:
           tf_actions_version: 0.12.16
           tf_actions_subcommand: 'plan'
           tf_actions_working_dir: './provisioning'
-          tf_actions_comment: true
+          tf_actions_comment: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: 'Terraform Apply'
+        id: 'terraform_apply'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.16
+          tf_actions_subcommand: 'apply'
+          tf_actions_working_dir: './provisioning'
+          tf_actions_comment: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
