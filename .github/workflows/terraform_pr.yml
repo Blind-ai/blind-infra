@@ -7,11 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
-      GOOGLE_APPLICATION_CREDENTIALS: "./gcp_credentials.json"
+      GOOGLE_APPLICATION_CREDENTIALS: "/github/workspace/gcp_credentials.json"
     steps:
       - name: 'Setting up job'
         run: |
           echo $GCP_CREDENTIALS > $GOOGLE_APPLICATION_CREDENTIALS
+
+
       - name: 'Checkout'
         uses: actions/checkout@master 
 
