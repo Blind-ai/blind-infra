@@ -1,4 +1,4 @@
-name: 'Terraform GitHub Actions'
+name: 'Terraform Pull request'
 on:
   - pull_request
 jobs:
