@@ -11,7 +11,6 @@ jobs:
       - name: 'Setting up job'
         run: |
           echo $GCP_CREDENTIALS > /tmp/gcp_credentials.json
-          export GOOGLE_APPLICATION_CREDENTIALS="/tmp/gcp_credentials.json"
 
       - name: 'Checkout'
         uses: actions/checkout@master 
@@ -26,6 +25,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS: "/tmp/gcp_credentials.json"
       - name: 'Terraform Init'
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -36,6 +36,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS: "/tmp/gcp_credentials.json"
+
       - name: 'Terraform Validate'
         uses: hashicorp/terraform-github-actions@master
         with:
@@ -46,6 +48,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS: "/tmp/gcp_credentials.json"
+
       - name: 'Terraform Plan'
         id: 'terraform_plan'
         uses: hashicorp/terraform-github-actions@master
@@ -57,3 +61,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_gcp_credentials: ${{ secrets.GCP_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS: "/tmp/gcp_credentials.json"
