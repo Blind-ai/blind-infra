@@ -5,11 +5,13 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
+    env:
+      GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
     steps:
       - name: 'Setting up job'
         run: |
-          echo ${{ secrets.GCP_CREDENTIALS }} > /tmp/gcp_credentials.json
-          
+          echo $GCP_CREDENTIALS > /tmp/gcp_credentials.json
+
       - name: 'Checkout'
         uses: actions/checkout@master 
 
