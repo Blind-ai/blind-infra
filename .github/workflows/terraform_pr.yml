@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: 'Setting up job'
         run: |
-          mkdir private
-          echo $GCP_CREDENTIALS > ./private/gcp_credentials.json
+          echo $GCP_CREDENTIALS > /tmp/gcp_credentials.json
+          export GOOGLE_APPLICATION_CREDENTIALS="/tmp/gcp_credentials.json"
 
       - name: 'Checkout'
         uses: actions/checkout@master 
