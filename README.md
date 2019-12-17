@@ -1,8 +1,8 @@
 ![](.github/banner.png)
 
-# Netive Infra
+# Blind Infra
 
-This repository contains the provisioning and configuration files for Netive.ai's infrastructure
+This repository contains the provisioning and configuration files for Blind.ai's infrastructure
 
 ## Getting started
 
