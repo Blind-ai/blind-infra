@@ -13,7 +13,7 @@ terraform {
 resource "google_container_cluster" "primary" {
   name               = "blind-cluster"
   location           = "us-central1-a"
-  initial_node_count = 2
+  initial_node_count = 3
 
   master_auth {
     username = ""
@@ -39,11 +39,6 @@ resource "google_container_cluster" "primary" {
     }
 
     tags = ["foo", "bar"]
-  }
-
-  timeouts {
-    create = "30m"
-    update = "40m"
   }
 }
 
