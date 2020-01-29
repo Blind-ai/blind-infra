@@ -13,7 +13,7 @@ terraform {
 resource "google_container_cluster" "primary" {
   name               = "blind-cluster"
   location           = "us-central1-a"
-  initial_node_count = 3
+  initial_node_count = 2
 
   master_auth {
     username = ""
